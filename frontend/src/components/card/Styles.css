@@ -1,0 +1,62 @@
+.card {
+    box-shadow: 1px 2px 3px grey;
+    width: 100%;
+    aspect-ratio: 1.75/1;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card > :nth-child(1) {
+    flex: 2;
+}
+
+.card > :nth-child(2) {
+    flex: 1;
+}
+
+.info-container {
+    position: relative;
+    padding: 1em;
+
+    & > h1 {
+        font-size : 1rem;
+    }
+    & > h4 {
+        font-size : .66rem;
+        display : -webkit-box;
+        -webkit-line-clamp:3;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+    }
+}
+
+.info-btn {
+    padding: .5em 1.25em;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.info-btn:hover {
+    background-color: darksalmon;
+    box-shadow: 0 1px 3px black;
+    cursor: pointer;
+}
+
+.btn-container {
+    width: max-content;
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    display: flex;
+    flex-direction: column;
+    gap: .25em;
+}
+
+.img-container > img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
