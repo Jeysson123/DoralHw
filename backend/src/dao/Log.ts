@@ -5,10 +5,10 @@ export class Log {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: 'text' })
   request: string;
 
-  @Column()
+  @Column({ type: 'longtext' })
   response: string;
 
   constructor(request: string, response: string) {

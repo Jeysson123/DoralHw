@@ -9,18 +9,21 @@ services:
       - "5000:5000"
     environment:
       DB_HOST: "mysql"
-    volumes:
-      - ./dist:/app/dist
+      DB_USER: "root"
+      DB_PASSWORD: ""
     depends_on:
       - mysql
+    entrypoint: ["./wait-for-it.sh", "mysql:3306", "--", "node", "dist/main.js"]
 
   mysql:
     image: mysql:latest
+    hostname: mysql
+    restart: always
     environment:
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: Wikimedia
     ports:
       - "3306:3306"
     volumes:
       - ./mysql_data:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql  # Add this line to initialize schema

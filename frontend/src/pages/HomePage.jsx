@@ -3,6 +3,7 @@ import SideBar from "../components/sidebar/Sidebar";
 import Landing from "../components/landing/Landing";
 import Pagination from "../components/pagination/Pagination";
 import PopupMessage from "../components/dialog/PopupMessage";
+import Loading from "../components/loading/Loading";
 
 const HomePage = () => {
     const [totalArticles, setTotalArticles] = useState(0);

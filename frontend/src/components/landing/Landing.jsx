@@ -3,6 +3,7 @@ import axios from "axios";
 import './Styles.css';
 import Card from '../card/Card';
 import PopupMessage from "../dialog/PopupMessage";
+import Loading from "../loading/Loading";
 import Article from "../../dto/Article";
 
 const Landing = (props) => {
@@ -10,7 +11,7 @@ const Landing = (props) => {
     const { listSize, index, qtyPage } = props;
     const [listArticles, setListArticles] = useState([]);
     const [urlTerm, setUrlTerm] = useState(localStorage.getItem('urlTerm') || "");
-
+    const [showLoading, setShowLoading] = useState(false);
     useEffect(() => {
         const intervalId = setInterval(() => {
             const storedUrlTerm = localStorage.getItem('urlTerm');
@@ -30,6 +31,10 @@ const Landing = (props) => {
                 "Content-Type": "application/json"
             };
             try {
+                if(localStorage.getItem('loading') === 'true'){
+                    setShowLoading(true);
+                    localStorage.setItem('loading', 'false');
+                }
                 const url = `http://localhost:5000/feed/${urlTerm}`;
                 const response = await axios.get(url, { headers });
                 const parsedArticles = parseArticles(response.data.mostread.articles);
@@ -46,6 +51,7 @@ const Landing = (props) => {
                 localStorage.removeItem('storedArticles');
                 setUrlTerm(null);
             }
+            setShowLoading(false);
         };
 
         if (urlTerm) {
@@ -91,7 +97,7 @@ const Landing = (props) => {
 
     return (
         <div className="landing">
-            {renderArticles()}
+            {showLoading ? <Loading/> : renderArticles()}
         </div>
     );
 };

@@ -19,7 +19,7 @@ const Card = (props) => {
     return (
         <div>
             <div className="card" onClick={() => openUrlInNewTab(article.url)}
-                style={{ border: readed ? '2px solid red' : '' }}>
+                style={{ border: readed ? '2px solid red' : '', background : readed ? 'lightgray' : ''}}>
                 <div className="img-container">
                     <img src={article.thumbnail} alt="Img" />
                 </div>
