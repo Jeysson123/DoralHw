@@ -14,12 +14,16 @@ An application that interacts with Wikipedia, based on dates and languages!
 ## Installation   🔧 
 
 •	Backend Module
+
   This module is a powerful service written in Nest.js, to interact with the Wikipedia API.
-  Note: for the correct execution of the service, you must run the command npm install and then npm start.
+
+  *Note: for the correct execution of the service, you must run the command npm install and then npm start.*
 
 •	Frontend Module
+
   This module is a React application, which serves as an interactive interface with the end user and our Nest.js service.
-  Note: for the correct execution of the service, you must run the command npm install and then npm start.
+
+  *Note: for the correct execution of the service, you must run the command npm install and then npm start.*
 
 Versions ✅
 •	Nest.js:
