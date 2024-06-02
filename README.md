@@ -27,6 +27,7 @@ An application that interacts with Wikipedia, based on dates and languages!
 
 Versions ✅
 •	Nest.js:
+
   •	"@nestjs/axios": "^3.0.2"
   •	"@nestjs/common": "^10.0.0"
   •	"@nestjs/core": "^10.0.0"
